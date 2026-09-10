@@ -1,0 +1,31 @@
+## SQL Server Database Files
+*.mdf
+*.ldf
+*.ndf
+*.bak
+*.trn
+
+## Visual Studio & SSDT Project Artifacts
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## JetBrains / VS Code IDE Artifacts
+.idea/
+.vscode/
+
+## Operating System Metadata
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+## Log & Temporary Files
+*.log
+*.tmp
+*.temp
+
+## Office Documents
+*.docx
+*.doc
