@@ -185,6 +185,8 @@ INSERT [hr].[Departments] ([DepartmentID], [DepartmentName], [Location]) VALUES 
 INSERT [hr].[Departments] ([DepartmentID], [DepartmentName], [Location]) VALUES (3, N'Neurology', N'Building B - Floor 1')
 INSERT [hr].[Departments] ([DepartmentID], [DepartmentName], [Location]) VALUES (4, N'Oncology', N'Building B - Floor 2')
 INSERT [hr].[Departments] ([DepartmentID], [DepartmentName], [Location]) VALUES (5, N'Pediatrics', N'Building C - Floor 1')
+INSERT [hr].[Departments] ([DepartmentID], [DepartmentName], [Location]) VALUES (6, N'Administration & Reception', N'Main Building - Ground Floor')
+INSERT [hr].[Departments] ([DepartmentID], [DepartmentName], [Location]) VALUES (7, N'Finance & Accounting', N'Main Building - Floor 1')
 SET IDENTITY_INSERT [hr].[Departments] OFF
 GO
 INSERT [hr].[Doctors] ([DoctorID], [Specialization], [LicenseNumber]) VALUES (1, N'Surgeon', N'LIC-001')
@@ -202,8 +204,7 @@ INSERT [hr].[DoctorSchedules] ([DoctorID], [DepartmentID], [DayOfWeek], [StartTi
 INSERT [hr].[DoctorSchedules] ([DoctorID], [DepartmentID], [DayOfWeek], [StartTime], [EndTime]) VALUES (5, 5, N'Wed', CAST(N'09:00:00' AS Time), CAST(N'17:00:00' AS Time))
 INSERT [hr].[DoctorSchedules] ([DoctorID], [DepartmentID], [DayOfWeek], [StartTime], [EndTime]) VALUES (7, 2, N'Sun', CAST(N'10:00:00' AS Time), CAST(N'16:00:00' AS Time))
 GO
-INSERT [hr].[Nurses] ([NurseID], [ShiftType]) VALUES (8, N'Evening')
-GO
+
 SET IDENTITY_INSERT [hr].[Rooms] ON 
 
 INSERT [hr].[Rooms] ([RoomID], [RoomNumber], [RoomType], [DepartmentID], [DailyRate]) VALUES (1, N'A-201', N'ICU', 1, CAST(3500.00 AS Decimal(10, 2)))
@@ -215,6 +216,7 @@ INSERT [hr].[Rooms] ([RoomID], [RoomNumber], [RoomType], [DepartmentID], [DailyR
 INSERT [hr].[Rooms] ([RoomID], [RoomNumber], [RoomType], [DepartmentID], [DailyRate]) VALUES (7, N'D-401', N'Private', 3, CAST(100.00 AS Decimal(10, 2)))
 SET IDENTITY_INSERT [hr].[Rooms] OFF
 GO
+
 SET IDENTITY_INSERT [hr].[Staff] ON 
 
 INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (1, N'Ahmed', N'Ali', N'ahmed.ali@hms.com', N'01000000001', CAST(N'2025-03-24' AS Date), 1, N'Doctor', CAST(20000.00 AS Decimal(10, 2)))
@@ -222,6 +224,24 @@ INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [Hire
 INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (3, N'Tamer', N'Omar', N'tamer.omar@hms.com', N'01000000003', CAST(N'2025-07-10' AS Date), 3, N'Doctor', CAST(21000.00 AS Decimal(10, 2)))
 INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (4, N'Amar', N'Mohsen', N'amar.mohsen@hms.com', N'01000000004', CAST(N'2025-02-04' AS Date), 4, N'Doctor', CAST(23000.00 AS Decimal(10, 2)))
 INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (5, N'Mostafa', N'Ali', N'mostafa.ali@hms.com', N'01000000005', CAST(N'2025-04-01' AS Date), 5, N'Doctor', CAST(19000.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (7, N'Waled', N'Ahmed', N'waled.ahmed@hms.com', N'01000000007', CAST(N'2025-05-06' AS Date), 2, N'Doctor', CAST(22000.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (8, N'Salma', N'Youssef', N'salma.youssef@hms.com', N'01000000008', CAST(N'2025-03-01' AS Date), 1, N'Nurse', CAST(9000.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (10, N'Mahmoud', N'El-Sayed', N'mahmoud.director@hms.com', N'01011112222', CAST(N'2020-01-15' AS Date), 6, N'Hospital Director', CAST(45000.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (11, N'Nour', N'Hassan', N'nour.hassan@hms.com', N'01022223333', CAST(N'2023-03-01' AS Date), 6, N'Receptionist', CAST(8500.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (12, N'Youssef', N'Kareem', N'youssef.kareem@hms.com', N'01033334444', CAST(N'2023-06-15' AS Date), 6, N'Receptionist', CAST(8000.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (13, N'Mariam', N'Adel', N'mariam.adel@hms.com', N'01044445555', CAST(N'2024-01-10' AS Date), 6, N'Receptionist', CAST(8200.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (14, N'Fatma', N'Ali', N'fatma.ali@hms.com', N'01055556666', CAST(N'2024-02-01' AS Date), 2, N'Nurse', CAST(9500.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (15, N'Aya', N'Ibrahim', N'aya.ibrahim@hms.com', N'01066667777', CAST(N'2024-03-15' AS Date), 5, N'Nurse', CAST(9200.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (16, N'Mona', N'Hassan', N'mona.hassan@hms.com', N'01077778888', CAST(N'2024-05-01' AS Date), 3, N'Nurse', CAST(9000.00 AS Decimal(10, 2)))
+INSERT [hr].[Staff] ([StaffID], [FirstName], [LastName], [Email], [Phone], [HireDate], [DepartmentID], [JobTitle], [Salary]) VALUES (17, N'Khaled', N'El-Sayed', N'khaled.accountant@hms.com', N'01088889999', CAST(N'2023-11-01' AS Date), 7, N'Accountant', CAST(14000.00 AS Decimal(10, 2)))
+SET IDENTITY_INSERT [hr].[Staff] OFF
+GO
+
+INSERT [hr].[Nurses] ([NurseID], [ShiftType]) VALUES (8, N'Evening')
+INSERT [hr].[Nurses] ([NurseID], [ShiftType]) VALUES (14, N'Morning')
+INSERT [hr].[Nurses] ([NurseID], [ShiftType]) VALUES (15, N'Night')
+INSERT [hr].[Nurses] ([NurseID], [ShiftType]) VALUES (16, N'Evening')
+GO
 
 -- Re-enable system-versioning on Patients table
 IF OBJECTPROPERTY(OBJECT_ID('clinical.Patients'), 'TableTemporalType') = 0

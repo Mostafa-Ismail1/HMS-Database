@@ -22,12 +22,20 @@ GO
 -- =====================================================================================
 -- 1. Database Security Roles
 -- =====================================================================================
+IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'db_hospital_director' AND type = 'R')
+    CREATE ROLE [db_hospital_director]
+GO
+
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'db_reception' AND type = 'R')
     CREATE ROLE [db_reception]
 GO
 
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'db_clinical_staff' AND type = 'R')
     CREATE ROLE [db_clinical_staff]
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'db_nursing_staff' AND type = 'R')
+    CREATE ROLE [db_nursing_staff]
 GO
 
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'db_accounting' AND type = 'R')

@@ -55,7 +55,8 @@ HMS-Database/
 │   ├── 07_Functions.sql            # Patient age scalar UDF & doctor appointments TVF
 │   ├── 08_StoredProcedures.sql     # Admission billing, reports, patient admission
 │   ├── 09_Triggers.sql             # Anti-overbooking & invoice status audit triggers
-│   └── 10_SeedData.sql             # Realistic sample seed data for all domains
+│   ├── 10_SeedData.sql             # Realistic sample seed data for all domains
+│   └── 11_Security_RBAC.sql        # Enterprise RBAC security, user provisioning & permissions
 │
 ├── ERD/
 │   └── README.md                   # Interactive Mermaid entity-relationship diagrams
@@ -94,6 +95,7 @@ sqlcmd -S <server_instance> -E -i Database/07_Functions.sql
 sqlcmd -S <server_instance> -E -i Database/08_StoredProcedures.sql
 sqlcmd -S <server_instance> -E -i Database/09_Triggers.sql
 sqlcmd -S <server_instance> -E -i Database/10_SeedData.sql
+sqlcmd -S <server_instance> -E -i Database/11_Security_RBAC.sql
 ```
 
 ---
@@ -115,6 +117,14 @@ sqlcmd -S <server_instance> -E -i Database/10_SeedData.sql
 
 ### 4. Advanced Analytics & Reporting
 - Comprehensive query suites in `Queries/` covering running totals, department workload rankings, and bed occupancy rates.
+
+### 5. Enterprise Role-Based Access Control (RBAC)
+- Implements strict defense-in-depth access governance and healthcare privacy standards:
+  - **`db_hospital_director`**: Full administrative database control (`CONTROL ON DATABASE`).
+  - **`db_reception`**: Patient intake and appointment scheduling with explicit `DENY` on medical prescriptions and financial invoices.
+  - **`db_clinical_staff`**: Diagnosis, prescription orders, lab requests, and room admissions with restricted access to billing and HR salary data.
+  - **`db_nursing_staff`**: Inpatient care, room readiness, and medication administration with prevention of prescription issuance or deletions.
+  - **`db_accounting`**: Complete billing operations with strict confidentiality barriers blocking access to patient medical diagnoses.
 
 ---
 
